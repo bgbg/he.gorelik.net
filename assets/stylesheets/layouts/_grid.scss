@@ -47,7 +47,7 @@
   padding: 0;
   margin: 0 $negative-gutter;
   font-size: 0;
-  text-align: left;
+  text-align: right;
 }
 
 // Descendants
@@ -65,7 +65,7 @@
   padding: 0 $gutter;
   margin: 0;
   font-size: $base-font-size;
-  text-align: left;
+  text-align: right;
   vertical-align: top;
   &.is-centered {
     text-align: center;
