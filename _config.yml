@@ -1,0 +1,69 @@
+title: Boris Gorelik
+email: boris@gorelik.net
+description: >- # this means to ignore newlines until "baseurl:"
+  Data Science &amp; Communication Consultant and Advisor
+  | AI, Machine Learning, Data Visualization
+baseurl: "/gorelik.net" # the subpath of your site, e.g. /blog
+url: "https://bgbg.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+permalink: /:year/:month/:day/:title
+
+blog_theme: light
+
+paginate: 25
+paginate_path: "/blog/page:num/"
+
+social:
+  github: bgbg
+  linkedin: boris-gorelik-phd
+  twitter-x: boris_gorelik
+  youtube: gorelikboris
+
+nav_pages:
+  - name: About
+    url: /
+  - name: Directions Matters Newsletter
+    url: "https://directionmatters.substack.com/"
+  - name: Blog
+    url: /blog/
+  - name: Productivity & Procrastination
+    url: /category/productivity-procrastination/
+  - name: Career Advice
+    url: /category/career-advice/
+  - name: אני בעברית
+    url: https://he.gorelik.net/
+
+collections:
+  my_tags:
+    output: true
+    permalink: /tag/:slug/
+  my_categories:
+    output: true
+    permalink: /category/:slug/
+defaults:
+  -
+    scope:
+      path: ""
+      type: my_tags
+    values:
+      layout: articles_by_tag
+  -
+    scope:
+      path: ""
+      type: my_categories
+    values:
+      layout: articles_by_category
+
+assets:
+  plugins:
+    css: { autoprefixer: {}}
+    img: { optim: {}}
+  source_maps: false
+  sources:
+    - _assets/icons
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/yarn
+
+plugins:
+  - jekyll-feed

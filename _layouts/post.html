@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+{% include head.html %}
+<body>
+<main>
+    <div class="grid grid-centered">
+        <div class="grid-cell">
+            {% include navigation.html %}
+            <article class="article {% if site.scrollappear_enabled %}scrollappear{% endif %}">
+                <header class="article-header">
+                    <h1>{{ page.title }}</h1>
+                    <p>{{ page.description }}</p>
+                    {% include article/info-footer.html post=page %}
+                </header>
+
+                {% if page.cover_image %}
+                <img src="{{ page.cover_image | relative_url }}" class="cover-image">
+                {% endif %}
+
+                <div class="article-content">
+                    {{ content }}
+                </div>
+                <div class="article-share">
+                    {% assign page_title = page.title | cgi_escape | truncate: 110 %}
+                    {% capture twitter-share-text %}{{ page_title }} - {{ page.url | absolute_url }}{% if site.social.twitter %} by @{{ site.social.twitter }}{% endif %}{% endcapture %}
+                    <a href="https://x.com/home?status={{ twitter-share-text | uri_escape }}" title="Share on X" rel="noreferrer noopener" target="_blank">
+                        <svg viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+                        <svg viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/></svg>
+                    </a>
+                </div>
+
+                {% if site.discus_identifier %}
+                <div id="disqus_thread" class="article-comments"></div>
+                <script src="https://{{ site.discus_identifier }}.disqus.com/embed.js" async defer></script>
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+                {% endif %}
+            </article>
+            {% include footer.html %}
+        </div>
+    </div>
+</main>
+{% include javascripts.html %}
+</body>
+</html>

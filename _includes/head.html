@@ -1,0 +1,43 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ site.title }} | {{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="{{ page.title | escape }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="{{ page.url | absolute_url }}">
+    <meta name="twitter:title" content="{{ page.title | escape }}">
+    <meta name="twitter:description" content="{{ page.description }}">
+
+    {% if page.cover_image %}
+    {% if page.cover_image contains '://' %}
+    <meta property="og:image" content="{{ cover.cover_image }}">
+    <meta name="twitter:image" content="{{ cover.cover_image }}">
+    {% else %}
+    <meta property="og:image" content="{{ page.cover_image | absolute_url }}">
+    <meta name="twitter:image" content="{{ page.cover_image | absolute_url }}">
+    {% endif %}
+    {% else %}
+    <meta property="og:image" content="{{ '/assets/img/2015/12/cropped-cropped-orange1-icon.webp' | absolute_url }}">
+    <meta name="twitter:image" content="{{ '/assets/img/2015/12/cropped-cropped-orange1-icon.webp' | absolute_url }}">
+    {% endif %}
+
+    <link rel="shortcut icon" type="image/webp" href="{{ '/assets/img/2015/12/cropped-cropped-orange1-icon.webp' | relative_url }}">
+
+    <link href="{{ 'feed.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="{{ site.name }} Last 10 blog posts" />
+
+
+    {% if site.blog_theme == "light" %}
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/stylesheets/light.css' | relative_url }}">
+    {% else %}
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/stylesheets/dark.css' | relative_url }}">
+    {% endif %}
+
+</head>

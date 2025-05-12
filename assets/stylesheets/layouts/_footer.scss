@@ -1,0 +1,42 @@
+// =============================================================================
+// Footer
+// =============================================================================
+
+.footer {
+  display: inline;
+  text-align: center;
+  padding-top: 35px;
+  margin-bottom: 85px;
+  border-top: 1px solid $base-border-color;
+  p {
+    font-size: 15px;
+    color: $gray-light;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+#search-box {
+  background-image: url($baseurl + '/assets/icons/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 80%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  flex: 1 1 0;
+}
+
+#search-button {
+  font-size: 16px;
+  padding: 12px 20px 12px 20px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  flex: 1 1 0;
+}
+
+#search-button:hover {
+  background: #ddd;
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+{% include head.html %}
+<body>
+<main>
+    <div class="grid grid-centered">
+        <div class="grid-cell">
+            {% include navigation.html %}
+            <article class="article {% if site.scrollappear_enabled %}scrollappear{% endif %} {% if page.rtl %}rtl-text{% endif %}">
+                {% if page.title %}
+                <header class="article-header">
+                    <h1>{{ page.title }}</h1>
+                    <p>{{ page.description }}</p>
+                </header>
+                {% endif %}
+
+                <div class="article-content">
+                    {{ content }}
+                </div>
+            </article>
+            {% include footer.html %}
+        </div>
+    </div>
+</main>
+{% include javascripts.html %}
+</body>
+</html>

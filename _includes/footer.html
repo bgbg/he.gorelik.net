@@ -1,0 +1,14 @@
+<footer class="footer {% if site.scrollappear_enabled %}scrollappear{% endif %}">
+
+  <form action="{{ '/search' | relative_url }}" method="get" class="search-form">
+    <input
+            type="text"
+            placeholder="Search"
+            class="form-control"
+            id="search-box"
+            name="query"
+    />
+    <button id="search-button" type="submit">submit</button>
+  </form>
+
+</footer>
