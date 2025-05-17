@@ -23,11 +23,11 @@ layout: default
     {% endfor %}
     {% if paginator.total_pages > 1 %}
     <li class="article-pagination {% if site.settings.scrollappear_enabled %}scrollappear{% endif %}">
-        {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | relative_url }}" class="article-pagination-left">{% include svg-icon.html icon="arrow-left" %} Older posts</a>
-        {% endif %}
         {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | relative_url }}" class="article-pagination-right">Newer posts {% include svg-icon.html icon="arrow-right" %}</a>
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="article-pagination-left">Newer posts {% include svg-icon.html icon="arrow-left" %}</a>
+        {% endif %}
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}" class="article-pagination-right">{% include svg-icon.html icon="arrow-right" %} Older posts</a>
         {% endif %}
     </li>
     {% endif %}
