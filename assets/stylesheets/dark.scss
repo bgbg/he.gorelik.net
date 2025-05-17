@@ -4,71 +4,81 @@
 // Dark theme
 // =============================================================================
 
+@use "sass:color";
+$baseurl: "{{ site.baseurl }}";
+
 // Variables
 // =============================================================================
 
-$baseurl: "{{ site.baseurl }}";
-
-// Shades of gray
-
-$black: #000;
-$gray-darkest: #121111;
-$gray-darker: lighten($gray-darkest, 15);
-$gray-dark: lighten($gray-darkest, 30);
-$gray: lighten($gray-darkest, 45);
-$gray-light: lighten($gray-darkest, 60);
-$gray-lighter: lighten($gray-darkest, 75);
-$gray-lightest: lighten($gray-darkest, 85);
-$white: #fff;
+@use "variables" as v;
 
 // Font colors
 
-$base-font-color: $gray-lighter;
-$base-accent-color: $gray-lighter;
-$base-accent-highlighted-color: darken($base-accent-color, 15);
+$base-font-color: v.$gray-lighter;
+$base-accent-color: v.$gray-lighter;
+$base-accent-highlighted-color: color.adjust($base-accent-color, $lightness:-15%);
 
 // Border color
 
-$base-border-color: $gray-darker;
+$base-border-color: v.$gray-darker;
 
 // Page specific colors
 
-$body-background: $gray-darkest;
-$header-logo-color: $white;
-$header-link-color: $gray-light;
-$header-link-color-hover: $white;
-$article-header-title-color: $gray-lightest;
-$article-header-description-color: $gray;
-$article-post-titles-color: $gray-lightest;
-$article-footer-color: $gray-dark;
-$article-footer-link-color: $gray-light;
-$article-footer-link-color-hover: $white;
-$article-paginator-color-hover: $gray-lightest;
+$body-background: v.$gray-darkest;
+$header-logo-color: v.$white;
+$header-link-color: v.$gray-light;
+$header-link-color-hover: v.$white;
+$article-header-title-color: v.$gray-lightest;
+$article-header-description-color: v.$gray;
+$article-post-titles-color: v.$gray-lightest;
+$article-footer-color: v.$gray-dark;
+$article-footer-link-color: v.$gray-light;
+$article-footer-link-color-hover: v.$white;
+$article-paginator-color-hover: v.$gray-lightest;
 
 // Imports
 // =============================================================================
 
 // Vendors
 
-@import "vendor/normalize";
+@use "vendor/normalize";
 
 // Settings
 
-@import "variables";
-@import "mixins";
-@import "base";
+@use "mixins";
+@use "base" with (
+$article-footer-color: v.$gray-dark,
+$article-footer-link-color: v.$gray-light,
+$article-footer-link-color-hover: v.$white,
+$article-header-description-color: v.$gray,
+$article-header-title-color: v.$gray-lightest,
+$article-paginator-color-hover: v.$gray-lightest,
+$article-post-titles-color: v.$gray-lightest,
+$base-accent-color: v.$gray-lighter,
+$base-accent-highlighted-color: color.adjust($base-accent-color, $lightness:-15%),
+$base-border-color: v.$gray-darker,
+$base-font-color: v.$gray-lighter,
+$body-background: v.$gray-darkest,
+$header-logo-color: v.$white,
+$header-link-color: v.$gray-light,
+$header-link-color-hover: v.$white
+);
 
 // Layouts
 
-@import "layouts/footer";
-@import "layouts/grid";
+@use "layouts/footer";
+@use "layouts/grid";
 
 // Modules
 
-@import "modules/about";
-@import "modules/articles";
-@import "modules/embed";
-@import "modules/header";
-@import "modules/highlights-dark";
-@import "modules/scrollappear";
-@import "modules/tags";
+@use "modules/about";
+@use "modules/articles";
+@use "modules/embed";
+@use "modules/header";
+@use "modules/highlights-dark";
+@use "modules/scrollappear";
+@use "modules/tags";
+
+#search-box {
+  background-image: url($baseurl + '/assets/icons/searchicon.png');
+}

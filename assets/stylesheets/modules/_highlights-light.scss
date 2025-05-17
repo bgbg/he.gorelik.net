@@ -2,14 +2,19 @@
 // Highlights light
 // =============================================================================
 
+@use "sass:color";
+@use "../base" as b;
+@use "../mixins" as m;
+@use "../variables" as v;
+
 .highlight {
   padding: 25px;
   margin: 0;
   margin: 30px 0;
   overflow: auto;
   font-weight: 400;
-  background: lighten($gray-lightest, 6);
-  border-radius: $base-border-radius;
+  background: color.adjust(v.$gray-lightest, $lightness:6%);
+  border-radius: v.$base-border-radius;
   pre {
     margin: 0;
   }
@@ -21,15 +26,15 @@
   padding: 2px 4px;
   font-size: 14px;
   color: #d14;
-  background: lighten($gray-lightest, 6);
-  border: 1px solid $base-border-color;
+  background: color.adjust(v.$gray-lightest, $lightness:6%);
+  border: 1px solid b.$base-border-color;
   border-radius: 1px;
 }
 
 // Responsive
 // =============================================================================
 
-@include breakpoint(small) {
+@include m.breakpoint(small) {
   .highlight {
     padding: 25px;
     font-size: 14px;

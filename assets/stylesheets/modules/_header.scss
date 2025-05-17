@@ -2,19 +2,23 @@
 // Header
 // =============================================================================
 
+@use "../base" as b;
+@use "../mixins" as m;
+@use "../variables" as v;
+
 .header-nav {
   display: block;
   padding: 75px 0 20px;
-  border-bottom: 1px solid $base-border-color;
+  border-bottom: 1px solid b.$base-border-color;
   text-align: right;
 }
 
 .header-logo {
   display: inline-block;
-  font-family: $serif;
+  font-family: v.$serif;
   font-size: 36px;
   font-weight: 700;
-  color: $header-logo-color;
+  color: b.$header-logo-color;
   text-decoration: none;
 }
 
@@ -37,15 +41,15 @@
     }
     a {
       font-size: 18px;
-      color: $header-link-color;
+      color: b.$header-link-color;
       cursor: pointer;
       svg {
         width: 16px;
         height: 16px;
-        fill: $header-link-color;
+        fill: b.$header-link-color;
       }
       &:hover svg {
-        fill: $header-link-color-hover;
+        fill: b.$header-link-color-hover;
       }
     }
   }
@@ -65,16 +69,16 @@
     vertical-align: middle;
     a {
       font-size: 18px;
-      color: $header-link-color;
+      color: b.$header-link-color;
       cursor: pointer;
       text-decoration: none;
       svg {
         width: 16px;
         height: 16px;
-        fill: $header-link-color;
+        fill: b.$header-link-color;
       }
       &:hover {
-        fill: $header-link-color-hover;
+        fill: b.$header-link-color-hover;
         text-decoration: underline;
       }
     }
@@ -90,14 +94,14 @@
     padding-right: 10px;
     a {
       display: inline-block;
-      color: $header-link-color;
+      color: b.$header-link-color;
       text-decoration: none;
-      &:hover { color: $header-link-color-hover; }
+      &:hover { color: b.$header-link-color-hover; }
     }
   }
 }
 
-@include breakpoint(extra-small) {
+@include m.breakpoint(extra-small) {
   .header-nav {
     text-align: center;
   }

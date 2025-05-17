@@ -2,14 +2,19 @@
 // Highlights dark
 // =============================================================================
 
+@use "sass:color";
+@use "../base" as b;
+@use "../mixins" as m;
+@use "../variables" as v;
+
 .highlight {
   padding: 25px;
   margin: 0;
   margin: 30px 0;
   overflow: auto;
   font-weight: 400;
-  background-color: darken($gray-darkest, 5);
-  border-radius: $base-border-radius;
+  background-color: color.adjust(v.$gray-darkest, $lightness:-5%);
+  border-radius: v.$base-border-radius;
   pre {
     margin: 0;
   }
@@ -21,15 +26,15 @@
   padding: 2px 4px;
   font-size: 14px;
   color: #f92672;
-  background: darken($gray-darkest, 5);
-  border: 1px solid $base-border-color;
+  background: color.adjust(v.$gray-darkest, $lightness:-5%);
+  border: 1px solid b.$base-border-color;
   border-radius: 1px;
 }
 
 // Responsive
 // =============================================================================
 
-@include breakpoint(small) {
+@include m.breakpoint(small) {
   .highlight {
     font-size: 14px;
   }
@@ -39,11 +44,11 @@
 // =============================================================================
 
 .highlight pre {
-  background-color: darken($gray-darkest, 5);
+  background-color: color.adjust(v.$gray-darkest, $lightness:-5%);
 }
 
 .highlight .hll {
-  background-color: darken($gray-darkest, 5);
+  background-color: color.adjust(v.$gray-darkest, $lightness:-5%);
 }
 
 // Comment

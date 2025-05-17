@@ -2,6 +2,9 @@
 // Variables
 // =============================================================================
 
+@use "sass:color";
+$baseurl: "{{ site.baseurl }}";
+
 // Typography
 // =============================================================================
 
@@ -13,6 +16,18 @@ $base-font-weight-bold: 700;
 
 // Colors
 // =============================================================================
+
+// Shades of gray
+
+$black: #000;
+$gray-darkest: #121111;
+$gray-darker: color.adjust($gray-darkest, $lightness:15%);
+$gray-dark: color.adjust($gray-darkest, $lightness:30%);
+$gray: color.adjust($gray-darkest, $lightness:45%);
+$gray-light: color.adjust($gray-darkest, $lightness:60%);
+$gray-lighter: color.adjust($gray-darkest, $lightness:75%);
+$gray-lightest: color.adjust($gray-darkest, $lightness:85%);
+$white: #fff;
 
 // Brand colors
 
@@ -29,7 +44,7 @@ $brand-warning: #f1c90b;
 $columns: 12;
 $max-width: 650px;
 $gutter: 20px;
-$one-column: 100% / $columns;
+$one-column: calc(100% / $columns);
 $negative-gutter: 0 - $gutter;
 
 // Font sizes

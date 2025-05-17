@@ -2,6 +2,10 @@
 // Articles
 // =============================================================================
 
+@use "../base" as b;
+@use "../mixins" as m;
+@use "../variables" as v;
+
 .article {
   display: block;
   margin: 100px 0;
@@ -16,7 +20,7 @@
     position: relative;
     display: block;
     padding: 50px 0;
-    border-bottom: 1px solid $base-border-color;
+    border-bottom: 1px solid b.$base-border-color;
     &:last-child {
       border-bottom: 0;
     }
@@ -30,24 +34,24 @@
         font-size: 11px;
         font-weight: 600;
         letter-spacing: .1em;
-        color: $gray;
+        color: v.$gray;
         text-decoration: none;
         text-transform: uppercase;
-        transition: color $base-transition-speed linear;
+        transition: color v.$base-transition-speed linear;
         svg {
           width: 16px;
           height: 16px;
           vertical-align: middle;
           margin: -2px 8px 0 8px;
-          fill: $gray;
+          fill: v.$gray;
         }
 
         &:hover svg {
-          fill: $article-paginator-color-hover;
+          fill: b.$article-paginator-color-hover;
         }
 
         &:hover {
-          color: $article-paginator-color-hover;
+          color: b.$article-paginator-color-hover;
         }
       }
     }
@@ -61,16 +65,16 @@
       position: relative;
       display: block;
       padding-left: 25px;
-      color: $article-header-title-color;
+      color: b.$article-header-title-color;
       border-bottom: 1px solid transparent;
       svg {
         width: 16px;
         height: 16px;
         vertical-align: middle;
         margin: -2px 8px 0 8px;
-        fill: $article-header-title-color;
+        fill: b.$article-header-title-color;
         opacity: 0;
-        transition: opacity $base-transition-speed linear;
+        transition: opacity v.$base-transition-speed linear;
       }
     }
     &:hover h5 svg {
@@ -81,7 +85,7 @@
     display: block;
     margin: 12px 0 10px;
     font-size: 15px;
-    color: $article-header-description-color;
+    color: b.$article-header-description-color;
   }
 }
 
@@ -91,15 +95,15 @@
   a {
     display: inline-block;
     font-size: 12px;
-    color: $article-footer-color;
+    color: b.$article-footer-color;
     text-transform: uppercase;
     vertical-align: middle;
   }
   a {
     margin-right: 7.5px;
-    color: $article-footer-link-color;
+    color: b.$article-footer-link-color;
     &:hover {
-      color: $article-footer-link-color-hover;
+      color: b.$article-footer-link-color-hover;
     }
     &:last-child {
       margin-right: 0;
@@ -120,7 +124,7 @@
   display: block;
   margin: 100px 0;
   font-style: italic;
-  color: $gray-light;
+  color: v.$gray-light;
   text-align: center;
 }
 
@@ -142,12 +146,12 @@
   display: block;
   padding-bottom: 30px;
   margin-bottom: 30px;
-  border-bottom: 1px solid $base-border-color;
+  border-bottom: 1px solid b.$base-border-color;
   p {
     display: block;
     margin: 12px 0 10px;
-    font-size: $base-font-size;
-    color: $article-header-description-color;
+    font-size: v.$base-font-size;
+    color: b.$article-header-description-color;
   }
   a {
     text-decoration: none;
@@ -169,8 +173,8 @@
   h4 {
     display: block;
     margin-bottom: 10px;
-    font-family: $sans-serif;
-    color: $article-post-titles-color;
+    font-family: v.$sans-serif;
+    color: b.$article-post-titles-color;
   }
   blockquote p {
     margin-bottom: 0;
@@ -187,7 +191,7 @@
   display: block;
   padding-top: 20px;
   margin-top: 30px;
-  border-top: 1px solid $base-border-color;
+  border-top: 1px solid b.$base-border-color;
 }
 
 .article-share {
@@ -199,12 +203,12 @@
     vertical-align: middle;
     svg {
       vertical-align: middle;
-      transition: fill $base-transition-speed linear;
-      fill: $gray-light;
+      transition: fill v.$base-transition-speed linear;
+      fill: v.$gray-light;
       width: 20px;
     }
     &:hover svg {
-      fill: $gray-dark;
+      fill: v.$gray-dark;
     }
   }
 }
@@ -212,7 +216,7 @@
 // Responsive
 // =============================================================================
 
-@include breakpoint(small) {
+@include m.breakpoint(small) {
   .article-list-footer {
     display: block;
   }
