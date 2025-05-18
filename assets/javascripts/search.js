@@ -41,6 +41,7 @@
         // Initalize lunr.js with the fields to search.
         // The title field is given more weight with the "boost" parameter
         var idx = lunr(function () {
+            this.use(lunr.multiLanguage('en', 'he'));
             this.field("id");
             this.field("title", { boost: 10 });
             this.field("author");

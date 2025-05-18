@@ -23,6 +23,9 @@ window.store = {
 </script>
 
 <!-- Import lunr.js from unpkg.com -->
-<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="{{site.baseurl}}/assets/javascripts/lunr/lunr.js"></script>
+<script src="{{site.baseurl}}/assets/javascripts/lunr-languages/lunr.stemmer.support.js"></script>
+<script src="{{site.baseurl}}/assets/javascripts/lunr-languages/lunr.multi.js"></script>
+<script src="{{site.baseurl}}/assets/javascripts/lunr-languages/lunr.he.js"></script>
 <!-- Custom search script which we will create below -->
 <script src="{{site.baseurl}}/assets/javascripts/search.js"></script>
