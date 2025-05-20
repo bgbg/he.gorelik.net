@@ -2,8 +2,8 @@ title: בוריס גורליק
 email: boris@gorelik.net
 description: >- # this means to ignore newlines until "baseurl:"
   חוקר נתונים, מומחה להדמיית נתונים, מרצה
-baseurl: "/he.gorelik.net" # the subpath of your site, e.g. /blog
-url: "https://bgbg.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: /:year/:month/:day/:title
 
@@ -48,17 +48,6 @@ defaults:
       type: my_categories
     values:
       layout: articles_by_category
-
-assets:
-  plugins:
-    css: { autoprefixer: {}}
-    img: { optim: {}}
-  source_maps: false
-  sources:
-    - _assets/icons
-    - _assets/javascripts
-    - _assets/stylesheets
-    - _assets/yarn
 
 plugins:
   - jekyll-feed
