@@ -9,6 +9,11 @@ layout: default
 <ul class="article-list">
     {% for post in site.tags[page.slug] %}
     <li class="article-list-item {% if site.scrollappear_enabled %}scrollappear{% endif %}">
+        {% if post.cover_image %}
+        <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
+            <img src="{{ post.cover_image | relative_url }}" class="cover-image" alt="{{ post.title }}">
+        </a>
+        {% endif %}
         <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
             <h5>{{ post.title }}</h5>
         </a>
