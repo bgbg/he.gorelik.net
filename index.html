@@ -1,27 +1,25 @@
 ---
 layout: default
 ---
+
 <ul class="article-list">
     {% for post in paginator.posts %}
 
-    <h2>
-        {{ post.title }}
-    </h2>
-
     <li class="article-list-item {% if site.scrollappear_enabled %}scrollappear{% endif %}">
+        {% if post.cover_image %}
+        <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
+            <img src="{{ post.cover_image | relative_url }}" class="cover-image" alt="{{ post.title }}">
+        </a>
+        {% endif %}
         <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
             <h5>
                 {{ post.title }}
                 {% include svg-icon.html icon="arrow-left" %}
             </h5>
         </a>
-        <p>
-            {% if post.description %}
-            {{ post.description }}
-            {% else %}
-            {{ post.excerpt }}
-            {% endif %}
-        </p>
+        <div class="article-content">
+            {{ post.content }}
+        </div>
         {% include article/info-footer.html post=post %}
     </li>
     {% endfor %}
